@@ -7,6 +7,7 @@ public class Main {
         String p = " ";
         String up = "baaccd";
         skip(p,up);
+        System.out.println(skip1(up));
 
     }
     /* way first. . . . in this we will not return a string rather it we will put the modified string in
@@ -25,5 +26,19 @@ public class Main {
             skip(p + ch, up.substring(1));
         }
     }
-    }
-
+    /*
+    Way second in this we will not return a string instead odf returning we will recursively call it,
+    till it gets empty.
+     */
+    public static String skip1(String up){
+        if(up.isEmpty()) {
+            return " ";
+        }
+         char ch = up.charAt(0);
+            if (ch == 'a') {
+                return skip1(up.substring(1));
+            } else {
+                return ch + skip1(up.substring(1));
+            }
+        }
+}
